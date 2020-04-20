@@ -2,16 +2,21 @@ import random
 
 value = random.randint(0,20)
 
-userInput = input("Guess a number between 0 and 20: ")
-integerUserInput = int(userInput)
-print(value)
-
-
-if(integerUserInput == value):
+def recurse():
+ placeholder = True
+ while(placeholder):
+  userInput = input("Guess a number between 0 and 20: ")
+  integerUserInput = int(userInput)
+  if(integerUserInput == value):
     print("You guessed correctly!")
-elif(value - 5 < integerUserInput <= value + 5):
+    break
+  elif(value - 5 < integerUserInput <= value + 3):
     print("You are close!")
-if(integerUserInput > value ):
+  elif(integerUserInput > value ):
     print("Too High")
-elif(integerUserInput < value - 5 < value):
+  elif(integerUserInput < value - 5 < value):
     print("Too Low")
+  else:
+    recurse()
+    break
+recurse()
